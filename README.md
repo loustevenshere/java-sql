@@ -91,6 +91,10 @@ Order By order_date DESC
 
 * [ ] ***find all suppliers who have names longer than 20 characters. Returns 11 records***
 
+Select *
+From suppliers
+Where length(company_name) > 20
+
   <details><summary>hint</summary>
 
   * This can be done with SELECT and WHERE clauses
@@ -102,6 +106,10 @@ Order By order_date DESC
 ```
 
 * [ ] ***find all customers that include the word 'MARKET' in the contact title. Should return 19 records***
+
+Select *
+From customers
+Where upper(contact_title) LIKE 'MARKET%' 
 
   <details><summary>hint</summary>
 
@@ -127,11 +135,17 @@ Order By order_date DESC
   * This can be done with the INSERT INTO clause
   </details>
 
+  Insert INTO customers(customer_id, company_name, contact_name, address, city, postal_code, country)
+VALUES('SHIRE', 'The Shire', 'Bilbo Baggins', '1 Hobbit-Hole', 'Bag End', 111, 'Middle Earth')
 ```SQL
 
 ```
 
 * [ ] ***update _Bilbo Baggins_ record so that the postal code changes to _"11122"_***
+
+UPDATE customers
+SET postal_code = 11122
+WHERE customer_id = 'SHIRE'
 
   <details><summary>hint</summary>
 
